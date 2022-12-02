@@ -1,8 +1,9 @@
 package com.example.td_android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.text.set
+import android.widget.Toast
 import com.example.td_android.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +28,17 @@ class MainActivity : AppCompatActivity() {
             value = String.format("%d", int_value)
             binding.incNb.text.clear()
             binding.incNb.text.insert(0, value)
+        }
+
+        binding.moveTab.setOnClickListener {
+            val text = binding.passText.text.toString()
+            if (text.isEmpty()) {
+                Toast.makeText(this, "Le message est vide", Toast.LENGTH_LONG).show()
+            } else {
+                val intent = Intent(applicationContext, Exo4Activity::class.java)
+                intent.putExtra("text", text)
+                startActivity(intent)
+            }
         }
     }
 }
