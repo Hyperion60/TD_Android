@@ -15,8 +15,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        // Exo 3
         binding.incNb.text.clear()
         binding.incNb.text.insert(0, "1")
+
+        // Exo 5
+        val adapter = ListExo4Adapter()
+        binding.listExo5.adapter = adapter
+        adapter.data = (0..30).toList()
     }
 
     override fun onStart() {
